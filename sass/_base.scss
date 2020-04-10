@@ -11,7 +11,7 @@ $topNavColor: #232323;
 $topNavHeight: #232323;
 
 // App
-$appWidth: 1024px;
+$appWidth: 948px;
 
 // Spacings
 $baseSpacing: 6;
@@ -30,6 +30,34 @@ body {
 	color: $textColor;
 	font-family: Source_Sans_Pro, Arial, Helvetica, sans-serif;
 }
+
+img {	
+	display: block;
+	max-width: 100%;
+	margin: auto;
+}
+
+.grid-sizer,
+.grid-item { 
+	width: 180px;
+}
+
+.grid-item {
+	margin-bottom: $baseSpacing*2px;
+
+	&--2 {
+		width: 200px;
+	}
+
+	&--3 {
+		width: 280px;
+	}
+}
+
+.gutter-sizer { 
+	width: 2px;
+}
+
 
 // Layout
 
