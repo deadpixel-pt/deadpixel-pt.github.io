@@ -1,0 +1,97 @@
+// Colors
+$brandColor: #131416;
+$neutralColor: #aaaaaa;
+$white: #ffffff;
+
+// Color Assigments
+$backgroundColor: $white;
+$textColor: $brandColor;
+$textAltColor: $neutralColor;
+$topNavColor: #232323;
+$topNavHeight: #232323;
+
+// App
+$appWidth: 1024px;
+
+// Spacings
+$baseSpacing: 6;
+
+// Text
+$textBiggest: ($baseSpacing*8) * 1px;
+$textBig: ($baseSpacing*4) * 1px;
+$textBase: 16px;
+$textBaseSmall: 14px;
+$textSmallest: ($baseSpacing*2) * 1px;
+
+// General
+
+body {
+	background-color: $backgroundColor;
+	color: $textColor;
+	font-family: Source_Sans_Pro, Arial, Helvetica, sans-serif;
+}
+
+// Layout
+
+.app {
+
+	.top-bar {
+		background-color: $topNavColor;
+		height: 50px;
+		width: 100%;		
+	}
+
+	.top-nav {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		width: $appWidth;
+		margin: auto;
+	}
+
+	.logo {
+		text-decoration: none;
+		color: $white;		
+		font-size: $textBig;
+	}
+
+	.nav {
+		margin: 0 0 0 auto;
+
+		.link {
+			margin: 0 0 0 ($baseSpacing*3px);
+			text-decoration: none;
+			color: $white;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	
+	.container {
+		width: $appWidth;
+		margin: auto;
+	}
+
+	.hero {
+		padding: ($baseSpacing * 10) *1px;
+
+		.heading {
+			margin: 0 auto ($baseSpacing*4px) 0;
+			text-align: center;
+			font-weight: bold;
+			font-size: $textBiggest;
+		}
+
+		.description {
+			position: relative;
+			left: ($baseSpacing*16) * 1px;
+			width:  300px;
+			margin: auto;
+			line-height: 1.4;
+			text-transform: uppercase;
+			color: $textAltColor;
+		}
+	}
+}
