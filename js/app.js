@@ -8,8 +8,7 @@ window.onload = function(){
 			// options...
 			itemSelector: '.grid-item',
 			columnWidth: '.grid-sizer',
-			horizontalOrder: true,
-			gutter: 12
+			gutter: 6
 		});
 	});
 }

@@ -11,7 +11,7 @@ $topNavColor: #232323;
 $topNavHeight: #232323;
 
 // App
-$appWidth: 948px;
+$appWidth: 1024px;
 
 // Spacings
 $baseSpacing: 6;
@@ -34,16 +34,17 @@ body {
 img {	
 	display: block;
 	max-width: 100%;
-	margin: auto;
+	margin: 0;
+	padding: 0;
 }
 
 .grid-sizer,
 .grid-item { 
-	width: 180px;
+	width: 200px;
 }
 
 .grid-item {
-	margin-bottom: $baseSpacing*2px;
+	margin-bottom: $baseSpacing*1px;
 
 	&--2 {
 		width: 200px;
