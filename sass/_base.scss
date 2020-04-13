@@ -38,6 +38,11 @@ img {
 	padding: 0;
 }
 
+.grid {	
+	margin: 0 auto;
+	width: 100%;
+  }
+
 .grid-sizer,
 .grid-item { 
 	width: 200px;
@@ -47,11 +52,11 @@ img {
 	margin-bottom: $baseSpacing*1px;
 
 	&--2 {
-		width: 200px;
+		width: 406px;
 	}
 
 	&--3 {
-		width: 280px;
+		width: 600px;
 	}
 }
 
@@ -67,7 +72,7 @@ img {
 	.top-bar {
 		background-color: $topNavColor;
 		height: 50px;
-		width: 100%;		
+		width: 100%
 	}
 
 	.top-nav {
@@ -98,8 +103,8 @@ img {
 		}
 	}
 	
-	.container {
-		width: $appWidth;
+	.container {	
+		max-width: 1600px;	
 		margin: auto;
 	}
 
