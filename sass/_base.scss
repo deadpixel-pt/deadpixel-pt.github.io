@@ -43,21 +43,21 @@ img {
 	width: 100%;
   }
 
+$gridColumn: 200;
+$gridGutter: 6;
+
 .grid-sizer,
 .grid-item { 
-	width: 200px;
+	width: $gridColumn * 1px;
 }
 
 .grid-item {
-	margin-bottom: $baseSpacing*1px;
+	margin-bottom: $baseSpacing * 1px;
 
 	&--2 {
-		width: 406px;
+		width: ($gridColumn * 2 + $gridGutter) * 1px;
 	}
 
-	&--3 {
-		width: 600px;
-	}
 }
 
 .gutter-sizer { 
@@ -104,7 +104,7 @@ img {
 	}
 	
 	.container {	
-		max-width: 1600px;	
+		max-width: 1900px;	
 		margin: auto;
 	}
 
