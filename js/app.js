@@ -6,7 +6,7 @@ window.onload = function(){
 		var grid = document.querySelector('.grid');
 		var msnry = new Masonry(grid, {
 			gutter: 6,
-			fitWidth: true
+			fitWidth: true,
 		});
 	});
 }
