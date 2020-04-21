@@ -12,6 +12,7 @@ $topNavHeight: #232323;
 
 // App
 $appWidth: 1024px;
+$topBarHeight: 60px;
 
 // Spacings
 $baseSpacing: 6;
@@ -43,21 +44,32 @@ img {
 	width: 100%;
   }
 
+$masonryWidth: 1900px;
 $gridColumn: 200;
 $gridGutter: 6;
 
 .grid-sizer,
 .grid-item { 
-	width: $gridColumn * 1px;
+	width: $gridColumn * 1px;	
 }
 
 .grid-item {
 	margin-bottom: $baseSpacing * 1px;
+	overflow: hidden;
 
 	&--2 {
 		width: ($gridColumn * 2 + $gridGutter) * 1px;
 	}
 
+	img {
+		transition: transform 0.6s ease;
+	}
+
+	&:hover {
+		img {
+			transform: scale(1.2);
+		}
+	}
 }
 
 .gutter-sizer { 
@@ -68,10 +80,9 @@ $gridGutter: 6;
 // Layout
 
 .app {
-
 	.top-bar {
 		background-color: $topNavColor;
-		height: 50px;
+		height: $topBarHeight;
 		width: 100%
 	}
 
@@ -79,7 +90,8 @@ $gridGutter: 6;
 		display: flex;
 		align-items: center;
 		height: 100%;
-		width: $appWidth;
+		max-width: $appWidth;
+		padding: 0 ($baseSpacing * 4px);
 		margin: auto;
 	}
 
@@ -104,7 +116,7 @@ $gridGutter: 6;
 	}
 	
 	.container {	
-		max-width: 1900px;	
+		max-width: $masonryWidth;	
 		margin: auto;
 	}
 
