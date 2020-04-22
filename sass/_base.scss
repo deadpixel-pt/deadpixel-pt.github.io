@@ -54,20 +54,63 @@ $gridGutter: 6;
 }
 
 .grid-item {
+	position: relative;
 	margin-bottom: $baseSpacing * 1px;
-	overflow: hidden;
+	overflow: hidden;	
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
 
 	&--2 {
 		width: ($gridColumn * 2 + $gridGutter) * 1px;
-	}
+	}	
 
-	img {
-		transition: transform 0.6s ease;
+	.label {
+		position: absolute;
+		text-align: center;
+		z-index: 100;
+		color: #fff;
+		padding: 6px;
+		pointer-events: none;
+		transform: translateY(15px);
+		transition: all 0.12s ease-out;
+		opacity: 0;
+		background-color: rgba(35, 35, 35, 0.6);
+		font-weight: bold;
 	}
 
 	&:hover {
+		.label {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	&.fade {
 		img {
-			transform: scale(1.2);
+			transition: opacity 0.6s ease;
+		}
+
+		&:hover {
+			img {
+				opacity: 0.4;
+			}
+		}
+	}
+
+	&.blur {
+		img {
+			transition: filter 0.6s ease;
+		}
+		
+		&:hover {
+			img {
+				filter: blur(4px);
+			}
 		}
 	}
 }
