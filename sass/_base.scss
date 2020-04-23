@@ -43,8 +43,13 @@ html, body {
 }
 
 body {
+	background-color: $backgroundColor;
 	color: $textColor;
 	font-family: Source_Sans_Pro, Arial, Helvetica, sans-serif;
+
+	&.detail {
+		background-color: $backgroundColorDetail;
+	}
 }
 
 img {	
@@ -139,11 +144,8 @@ $gridGutter: 6;
 .app {
 	position: relative;
 	height: 100%;
-	background-color: $backgroundColor;	
 
 	&.detail {
-		background-color: $backgroundColorDetail;
-
 		.hero {
 			padding: 0 0 ($baseSpacing * 9px) 0;
 		}
