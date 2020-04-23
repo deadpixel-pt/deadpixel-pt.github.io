@@ -5,14 +5,15 @@ $white: #ffffff;
 
 // Color Assigments
 $backgroundColor: $white;
+$backgroundColorDetail: #eeeeee;
 $textColor: $brandColor;
 $textAltColor: $neutralColor;
 $topNavColor: #232323;
 $topNavHeight: #232323;
 
 // App
-$appWidth: 1024px;
-$topBarHeight: 60px;
+$appWidth: 1200px;
+$contentWidth: 960px;
 
 // Spacings
 $baseSpacing: 6;
@@ -24,10 +25,24 @@ $textBase: 16px;
 $textBaseSmall: 14px;
 $textSmallest: ($baseSpacing*2) * 1px;
 
-// General
+// Transitions
+$navLinkHeight: 2px;
+$labelColor: $white;
+$labelTransitionDuration: 0.4s;
+$labelEasing: cubic-bezier(0.33, 1, 0.68, 1);
+$imageOpacity: 0.6;
+$imageTransitionDuration: 0.6s;
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+html, body {
+	position: relative;
+	height: 100%;
+}
 
 body {
-	background-color: $backgroundColor;
 	color: $textColor;
 	font-family: Source_Sans_Pro, Arial, Helvetica, sans-serif;
 }
@@ -70,17 +85,16 @@ $gridGutter: 6;
 	}	
 
 	.label {
-		position: absolute;
-		text-align: center;
-		z-index: 100;
-		color: #fff;
-		padding: 6px;
-		pointer-events: none;
+		position: absolute;		
+		padding: $baseSpacing * 1px;
 		transform: translateY(15px);
-		transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 		opacity: 0;
-		background-color: rgba(35, 35, 35, 0.6);
+		text-align: center;
+		color: $labelColor;
 		font-weight: bold;
+		pointer-events: none;
+		z-index: 100;
+		transition: all $labelTransitionDuration $labelEasing;
 	}
 
 	&:hover {
@@ -92,12 +106,12 @@ $gridGutter: 6;
 
 	&.fade {
 		img {
-			transition: opacity 0.6s ease;
+			transition: opacity $imageTransitionDuration ease;
 		}
 
 		&:hover {
 			img {
-				opacity: 0.4;
+				opacity: $imageOpacity;
 			}
 		}
 	}
@@ -123,37 +137,106 @@ $gridGutter: 6;
 // Layout
 
 .app {
+	position: relative;
+	height: 100%;
+	background-color: $backgroundColor;	
+
+	&.detail {
+		background-color: $backgroundColorDetail;
+
+		.hero {
+			padding: 0 0 ($baseSpacing * 9px) 0;
+		}
+
+		.heading {
+			font-size: $textBiggest;
+			font-weight: bold;
+			margin: 0 0 ($baseSpacing * 3px) 0;
+		}
+	}
+
 	.top-bar {
-		background-color: $topNavColor;
-		height: $topBarHeight;
 		width: 100%
 	}
 
 	.top-nav {
+		position: relative;
 		display: flex;
 		align-items: center;
 		height: 100%;
 		max-width: $appWidth;
-		padding: 0 ($baseSpacing * 4px);
-		margin: auto;
+		padding: ($baseSpacing * 10px) ($baseSpacing * 4px) 0 ($baseSpacing * 4px);
+		margin: 0 auto;
+	}
+
+	.brand {
+		position: relative;
+		top: -2px;
+		display: inline-block;
+		height: 12px;
+		width: 12px;
+		margin: 0 12px 0 0;
+		
+		&::before {
+			content: "";
+			position: absolute;
+			display: block;
+			bottom: 0;
+			left: 0;			
+			height: 6px;
+			width: 6px;
+			background-color: $brandColor;			
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			display: block;
+			top: 0;
+			right: 0;
+			height: 6px;
+			width: 6px;
+			background-color: $brandColor;
+		}
 	}
 
 	.logo {
 		text-decoration: none;
-		color: $white;		
+		color: $brandColor;		
 		font-size: $textBig;
+		font-weight: bold;
+		text-transform: uppercase;
 	}
 
 	.nav {
-		margin: 0 0 0 auto;
+		margin: 0 0 0 auto;		
+		display: flex;		
 
-		.link {
-			margin: 0 0 0 ($baseSpacing*3px);
+		.link {			
+			position: relative;	
+			margin: 0 0 0 ($baseSpacing*5px);
+			padding: 12px 0;
 			text-decoration: none;
-			color: $white;
+			color: $brandColor;
+			display: flex;
+			align-items: center;
+
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: $navLinkHeight;
+				width: 100%;
+				background-color: $brandColor;
+				transform: scaleX(0);
+				transition: transform 0.2s ease;
+			}
 
 			&:hover {
-				text-decoration: underline;
+				&::after {
+					transform: scaleX(1);
+				}
 			}
 		}
 	}
@@ -169,7 +252,6 @@ $gridGutter: 6;
 		.heading {
 			margin: 0 auto ($baseSpacing*4px) 0;
 			text-align: center;
-			font-weight: bold;
 			font-size: $textBiggest;
 		}
 
@@ -182,5 +264,13 @@ $gridGutter: 6;
 			text-transform: uppercase;
 			color: $textAltColor;
 		}
+	}
+
+	.content {
+		display: block;
+		margin: ($baseSpacing * 12px) auto;
+		width: $contentWidth;
+		background-color: $white;
+		padding: ($baseSpacing * 9px);
 	}
 }
