@@ -3,5 +3,5 @@ layout: detail
 title: Detail
 logo: Deadpixel
 video: 315208397
-name: Fnac Gaming
+project: Fnac Gaming
 ---

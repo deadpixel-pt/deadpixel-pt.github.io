@@ -3,5 +3,5 @@ layout: detail
 title: Detail
 logo: Deadpixel
 video: 156748187
-name: No Solo Agua
+project: No Solo Agua
 ---
